@@ -5,6 +5,7 @@ class ProjectsModal(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     href = models.URLField(max_length=200, blank=True, null=True)
+    imagename = models.CharField(max_length=100)
     links = models.JSONField(default=list)
 
     date_created = models.DateTimeField(auto_now_add=True)

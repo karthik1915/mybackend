@@ -2,10 +2,12 @@ import json
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from .utils import ContactMessage
+from .models import ProjectsModal
 
 
 def index(req):
-    return render(req, "main.html")
+    modal_data = ProjectsModal.objects.all()
+    return render(req, "main.html", {'projects': modal_data})
 
 
 def about(req):
