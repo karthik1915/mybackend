@@ -168,11 +168,10 @@
   projBar.forEach(bar=> {
     ScrollTrigger.create({
       trigger:bar,
-      start:"top-=200 center+=50",
+      start:"top-=200 center+=150",
       end:"bottom bottom",
       pinSpacing:false,
       animation:gsap.fromTo(bar,{y:140,opacity:0},{y:0,opacity:1,duration:1}),
-
     });
   });
   
