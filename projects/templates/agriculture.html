@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block title %}Projects{% endblock %}
+{%block css%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'projects/css/agriculture.css' %}" />
+{%endblock%}
+{% block navlinks %}
+    <div>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'services' %}">Services</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </div>
+{% endblock %}
+{% block popuplinks %}
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'services' %}">Services</a>
+    <a href="{% url 'contact' %}">Contact</a>
+{% endblock %}
+{% block content %}
+    <div class="main">
+        <h2>Smart Agricultural Field Monitoring and Motor Control System with Prediction Analysis</h1>
+        <div class="table">
+            <h3> Table Of Contents </h3>
+            <ul>
+                <li><a href="#components">Project's Components and Objective</a></li>
+                <li><a href="#hardware">Hardware/Software components</a></li>
+                <li><a href="#server">Coding Part</a></li>
+                <li><a href="#mobile">Images and Videos</a></li>
+                <li><a href="#ml">Paper Publication</a></li>
+            </ul>
+        </div>
+
+        <div class="contents" id="components">
+            <div class="img-container">
+                <img src={%static 'projects/images/flowgraph.png'%} class="flowgraph"/>
+            </div>
+        </div>
+
+        <div class="contents" id="hardware">
+            <h2>Hardware/Software components</h2>
+            <div class="grid-container">
+                <div class="grids">
+                    <h3 class="grid-title">Prototype</h3>
+                    <section class="grid-title">
+                        <ul>
+                            <li>Temperature, Humidity and Moisure Sensors</li>
+                            <li>LCD 20x2 Display</li>
+                            <li>Platform IO IDE</li>
+                            <li>Mini Water Pump with Relay</li>
+                        </ul>
+                    </section>
+                    <h3 class="grid-title">Server</h3>
+                    <section class="grid-title">
+                        <ul>
+                            <li>Laptop act as local server</li>
+                            <li>Flask Micro Web Framework</li>
+                        </ul>
+                    </section>
+                    <h3 class="grid-title">Mobile Application</h3>
+                    <section class="grid-title">
+                        <ul>
+                            <li>Flutter Framework</li>
+                            <li>personal mobile with wifi debugging</li>
+                            <li>Visual Studio code with flutter sdk</li>
+                        </ul>
+                    </section>
+                    <h3 class="grid-title">ML Models</h3>
+                    <section class="grid-title">
+                        <ul>
+                            <li>Random Forest</li>
+                            <li>Custom Dataset</li>
+                            <li>Scikit-Learn</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="contents"  id="server">
+            <h2>Coding Part</h2>
+            <section class="mycontainer">
+                <h3>NodeMcu</h3>
+                <p>
+                    &emsp;Our Microcontroller is <span>NodeMcu ESP8266</span> with a <span>temperature</span> and <span>humidity sensor (DHT11)</span> and a <span>moisture sensor</span>. These components have an <span>ADC converter</span> to connect them with the microcontroller,
+                    and they are all connected to the MCU via the <span>GPIO data pins</span>.
+                </p>
+                <p>
+                    &emsp;We used <span>PlatformIO IDE</span> instead of <span>Arduino IDE</span> because PIO has extension support in VSCode. It provides all the tools needed to build and upload the code to the embedded system,
+                    with <span>Adafruit board configuration</span> and <span>header files</span> to support <span>LCD display</span>, making the NodeMCU act as a web server, CPP JSON library, etc.
+                </p>
+                <p>
+                    &emsp;The <span>HTTP POST request</span> is made every 5 seconds from the NodeMCU to the server, which is <span>JSON</span> of the field parameters along with the <span>motor status</span>, which is a boolean value. When the server accesses the specific endpoint in the NodeMCU server
+                    with the search param <code>?motor=on/off</code>, it processes the param and works accordingly.
+                </p>
+                <p>
+                    <h3>Step to copy the code</h3>
+                    <ol>
+                        <li>Clone the <a href="">Repo</a> or download the zipped file</li>
+                        <li>Install PIO Extention in VSCode and add the respective headfiles</li>
+                        <li>Check if COM Driver is installed in the PC</li>
+                        <li>Build and Upload the code in NodeMcu</li>
+                    </ol>
+                </p>
+                <h3>python - Flask</h3>
+                <p>&emsp;The Centralised web server is scripted with Flask -  python's micro web framwork, with is responsible to process the data flow from prototype to the mobile, it accepts and display the recived data in the debug terminal
+                    the recieved data is accessible in the endpoint "/sensor-readings", where the data is constantly updated from the recieved data. 
+                </p>
+                <p>
+                    <h3>Step to copy the code</h3>
+                    <ol>
+                        <li>Clone the <a href="">Repo</a> or downloaded the zipped file</li>
+                        <li>Install python libraries and flask framework with pip</li>
+                        <li><code>Run python app.py</code></li>
+                    </ol>
+                </p>
+                <h3>python - Machine Learning</h3>
+                <p>
+                    &emsp;This part of the projects contains compiled machine learning model where the trained model is in .pkl format, by using scikit-learn library and joblib package, we can query the input parameters to the model and get the predicted
+                    label.
+                    <ol>
+                        <li>This folder contains jupyter Notebook files that have code to train the model</li>
+                        <li>The dataset that we used to train and test the model</li>
+                        <li>Notebook file to visulize the data and prediction accuracy of the models</li>
+                        
+                    </ol>
+                </p>
+                <h3>Flutter Application</h3>
+                <p>
+                    &emsp;This Flutter application does http responses with HTTP dart package and handles various error and display the status in the snackbar of the mobile application, since it is cross platform framwork it works in both android and ios
+                </p>
+                <p>
+                    <h3>Step to copy the code</h3>
+                    <ol>
+                        <li>Clone the <a href="">Repo</a> or downloaded the zipped file</li>
+                        <li>Check whether is fluter sdk is installed in the PC</li>
+                        <li>Run <code>flutter pub get</code> and <code>flutter build --release</code></li>
+                    </ol>
+                </p>    
+            </section>
+        </div>
+
+        <div class="contents"  id="mobile">
+            <h1>Images and Videos</h1>
+            
+        </div>
+
+        <div class="contents"  id="ml">
+            <h1>Paper Publication</h1>
+        </div>
+
+        <footer class="footer" id="footer">
+            <section class="footer-container"> 
+                <h2>Our Team</h2>
+                
+                <img class="team-image" src={%static "projects/images/team.png"%}/>      
+            </section>
+          </footer>
+    </div>
+{% endblock %}
+{%block js%}
+<script>
+    {% comment %} gsap.set('section.footer-container', { yPercent: -50 }) {% endcomment %}
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(".footer-container",
+    {
+        y:-120,
+    }, {
+        duration: 1, // Duration of the animation
+        y: 80, // Move from 100% to 0 vertically
+        ease: "power4.out", // Easing function
+        scrollTrigger: {
+          trigger: "#footer", // Trigger when the footer comes into view
+          start: "top bottom", // Start the animation when the top of the footer reaches the bottom of the viewport
+          end: "bottom top", // End the animation when the bottom of the footer leaves the top of the viewport
+          scrub: true,
+          reverse:true,
+        }
+      });
+</script>
+    <script src={%static "portfolio/js/script.js"%}></script>
+{%endblock js%}

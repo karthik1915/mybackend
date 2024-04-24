@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Projects{% endblock %}
+{%block css%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'projects/css/agriculture.css' %}" />
+{%endblock%}
+{% block navlinks %}
+    <div>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'services' %}">Services</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </div>
+{% endblock %}
+{% block popuplinks %}
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'services' %}">Services</a>
+    <a href="{% url 'contact' %}">Contact</a>
+{% endblock %}
+
+{% block content %}
+    <h1>hello</h1>
+{%endblock content%}
+
+{%block js%}
+<script src={%static "portfolio/js/script.js"%}></script>
+{%endblock js%}

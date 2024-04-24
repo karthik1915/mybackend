@@ -7,7 +7,7 @@ from .models import ProjectsModal
 
 def index(req):
     modal_data = ProjectsModal.objects.all()
-    return render(req, "main.html", {'projects': modal_data})
+    return render(req, "main.html", {"projects": modal_data})
 
 
 def about(req):

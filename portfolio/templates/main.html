@@ -2,12 +2,13 @@
 {%load static%}
 <div>
   <a href="{% url 'about' %}">About</a>
-  <a id="projects">Projects</a>
+  <a href="{% url 'projects' %}">Projects</a>
   <a href="{% url 'services' %}">Services</a>
   <a href="{% url 'contact' %}">Contact</a>
 </div>
 {% endblock %} {% block popuplinks %}
 <a href="{% url 'about' %}">About</a>
+<a href="{% url 'projects' %}">Projects</a>
 <a href="{% url 'services' %}">Services</a>
 <a href="{% url 'contact' %}">Contact</a>
 {% endblock %} {% block content %}
