@@ -261,3 +261,44 @@ body {
   padding: 10px 20px;
   border-radius: 18px;
 }
+
+
+.container{
+  width: 98vw;
+  max-width: 1024px;
+  padding: 20px 10px;
+  margin: auto;
+}
+
+.projects-links {
+  width: 80%;
+  height: auto;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 10px auto;
+  background-color: #899878;
+}
+
+.projects-links > img {
+  height: 100px;
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+.projects-links > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (max-width:586px) {
+  .projects-links{
+    width: 90%;
+    flex-direction: column;
+    
+  }
+}

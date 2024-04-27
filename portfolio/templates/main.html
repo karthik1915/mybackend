@@ -59,12 +59,9 @@
   gsap.registerPlugin(ScrollTrigger);
 
   document.getElementById("home").addEventListener("click", function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.location.href = "/"; 
   });
-  
+
   document.getElementById("projects").addEventListener("click", function () {
     const targetPosition = window.scrollY + window.innerHeight;
   

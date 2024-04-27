@@ -99,13 +99,13 @@
                     <h3>Step to copy the code</h3>
                     <ol>
                         <li>Clone the <a href="">Repo</a> or download the zipped file</li>
-                        <li>Install PIO Extention in VSCode and add the respective headfiles</li>
-                        <li>Check if COM Driver is installed in the PC</li>
-                        <li>Build and Upload the code in NodeMcu</li>
+                        <li>Install <a href="https://platformio.org/">PIO</a> Extention in VSCode and add the respective headerfiles</li>
+                        <li>Make sure COM Driver is installed in the PC</li>
+                        <li>Build and Upload the code to NodeMcu</li>
                     </ol>
                 </p>
                 <h3>python - Flask</h3>
-                <p>&emsp;The Centralised web server is scripted with Flask -  python's micro web framwork, with is responsible to process the data flow from prototype to the mobile, it accepts and display the recived data in the debug terminal
+                <p>&emsp;The Centralised web server is scripted with <a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a> -  python's micro web framwork, with is responsible to process the data flow from prototype to the mobile, it accepts and display the recived data in the debug terminal
                     the recieved data is accessible in the endpoint "/sensor-readings", where the data is constantly updated from the recieved data. 
                 </p>
                 <p>
@@ -135,7 +135,7 @@
                     <h3>Step to copy the code</h3>
                     <ol>
                         <li>Clone the <a href="">Repo</a> or downloaded the zipped file</li>
-                        <li>Check whether is fluter sdk is installed in the PC</li>
+                        <li>Check whether is <a href="https://docs.flutter.dev/get-started/install">fluter sdk</a> is installed in the PC</li>
                         <li>Run <code>flutter pub get</code> and <code>flutter build --release</code></li>
                     </ol>
                 </p>    
@@ -154,8 +154,11 @@
         <footer class="footer" id="footer">
             <section class="footer-container"> 
                 <h2>Our Team</h2>
-                
-                <img class="team-image" src={%static "projects/images/team.png"%}/>      
+                <div class="images">
+                    <img class="team-image" src={%static "projects/images/Ramesh.png"%}/>      
+                    <img class="team-image" src={%static "projects/images/Ravi.png"%}/>      
+                    <img class="team-image" src={%static "projects/images/karthik.png"%}/>   
+                </div>
             </section>
           </footer>
     </div>
@@ -164,6 +167,10 @@
 <script>
     {% comment %} gsap.set('section.footer-container', { yPercent: -50 }) {% endcomment %}
     gsap.registerPlugin(ScrollTrigger);
+
+    document.getElementById("home").addEventListener("click", function () {
+        window.location.href = "/projects"; 
+      });
 
     gsap.fromTo(".footer-container",
     {

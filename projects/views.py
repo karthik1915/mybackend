@@ -1,11 +1,12 @@
 from django.shortcuts import render
-
+from .models import MiniProjectsModal
 
 # Create your views here.
 
 
 def projects(req):
-    return render(req, "projects.html")
+    modal_data = MiniProjectsModal.objects.all()
+    return render(req, "projects.html", {"miniprojects": modal_data})
 
 
 def agriculture(req):

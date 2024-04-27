@@ -20,9 +20,56 @@
 {% endblock %}
 
 {% block content %}
-    <h1>hello</h1>
+    <div class="container">
+        <h1>Projects</h1>
+
+        <section class="projects-links" onclick="agriculture()">
+            <img src="{%static 'projects/images/agriculture_project_preview.png'%}" />
+            <div class="">
+                <h3>Smart Agricultural Field Monitoring and Motor Control System with Prediction Analysis</h3>
+                <div>
+                    Key Words : <span>flutter</span> ,<span>PlatformIO</span> ,<span>Python</span> ,<span>Machine Learning</span>
+                </div>
+            </div>
+        </section>
+
+        <h1>Mini Projects</h1>
+        {% for data in miniprojects %}
+            <section class="projects-links" data-link={{data.link}}>
+                <img src="{%static 'projects/images/'%}{{data.image_name}}" />
+                <div class="">
+                    <h3>{{data.title}}</h3>
+                    <div>
+                        Key Words : {% for keywords in data.keywords %}
+                            <span>{{keywords}}</span>,
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    </div>
 {%endblock content%}
 
 {%block js%}
+<script>
+    document.getElementById("home").addEventListener("click", function () {
+        window.location.href = "/";
+    });
+
+    function agriculture() {
+        window.location.href = "{% url 'agriculture' %}"; // Navigate to the custom link
+    }
+
+    document.querySelectorAll('.projects-links').forEach(function(section) {
+        section.addEventListener('click', function() {
+            // Extract the link from the data-link attribute of the clicked section
+            var link = section.getAttribute('data-link');
+            if (link) {
+                window.open(link, '_blank'); 
+            }
+        });
+    });
+
+</script>
 <script src={%static "portfolio/js/script.js"%}></script>
 {%endblock js%}

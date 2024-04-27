@@ -38,30 +38,6 @@ h3 {
   background-color: var(--lightgreen);
 }
 
-footer {
-  width: 100vw;
-  color: white;
-  background-color: var(--secondary);
-  height: auto;
-  max-height: 300px;
-  overflow: hidden;
-}
-
-.footer-container{
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding-bottom: 40px;
-}
-
-.team-image{
-  width:60vw;
-  max-width: 512px;
-  min-width: 256px;
-}
-
 .flowgraph {
   object-fit: cover;
   width: 100%;
@@ -96,9 +72,9 @@ footer {
 }
 
 .grid-title{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 @media screen and (max-width: 652px) {
@@ -110,7 +86,7 @@ footer {
 @media screen and (max-width: 526px) {
   .grids {
     display: block;
-   
+    
   }
 }
 
@@ -135,4 +111,52 @@ span{
 .mycontainer > ul, ol {
   padding-top: 20px;
   padding-left: 20px;
+}
+
+footer {
+  width: 100vw;
+  color: white;
+  background-color: var(--secondary);
+  height: auto;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.footer-container{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 40px;
+  
+}
+
+.images{
+  transform: translateX(20px);
+}
+
+.team-image{
+  width:128px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width:476px){
+  .team-image{
+    width:72px;
+  }
+}
+
+.team-image:hover{
+  border: 2px solid var(--bg);
+}
+
+
+.team-image:nth-child(2){
+  transform: translateX(-20px);
+}
+
+.team-image:nth-child(3){
+  transform: translateX(-40px);
 }
