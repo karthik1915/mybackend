@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- MetaData -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Karthikeyan - {% block title %}Portfolio{% endblock %}</title>
@@ -10,6 +11,8 @@
       type="image/x-icon"
       href="{% static 'portfolio/images/logo.ico' %}"
     />
+
+    <!-- cdns -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,24 +20,42 @@
       rel="stylesheet"
     />
 
+    <!-- css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{% static 'portfolio/js/tailwind.config.js' %}"></script>
     <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}" />
     {%block css%}{%endblock%}
   </head>
-  <body>
-    <div class="nav-container" id="navContainer">
-      <div id="home" class="borderblack">
-        <img src="{% static 'portfolio/images/image.png' %}" />
-        <p>KARTHIKEYAN</p>
+
+  <!-- body -->
+  <body class="w-screen h-screen max-w-6xl mx-auto overflow-x-hidden">
+    <!-- navbar -->
+    <div id="navbar" class="flex fixed bg-background-light justify-between items-center w-full px-3 pt-6 pb-2">
+      <!-- [ -->
+      <div id="home" class="flex items-center rounded-full cursor-pointer border border-black">
+        <img class="h-[44px]" src="{% static 'portfolio/images/image.png' %}" />
+        <p id="hero-name" class="font-bold px-3.5 py-2.5">KARTHIKEYAN</p>
       </div>
+      <!-- ] -->
+      <!-- navlinks [ -->
       {% block navlinks %}{% endblock %}
-      <button onclick="toggleMenu()">
-        <span class="menu"></span>
-      </button>
+      <!-- ] -->
+      <!-- popupbutton [ -->
+      <button class="md:hidden" type="button">Button</button>
+      <!-- ] -->
     </div>
+
+    <!-- popup navbar[ -->
     <div class="popup-menu" id="popup-menu">
-      <div class="menu-items" id="menu-items">{% block popuplinks %}{% endblock %}</div>
+      <div class="menu-items" id="menu-items">
+        {% block popuplinks %}{% endblock %}
+      </div>
+      <!-- ] -->
     </div>
+    <!-- navbar end -->
     {% block content %}{% endblock %}
+
+    <!-- js -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
@@ -47,7 +68,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="{%static 'portfolio/js/script.js'%}"></script>
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
     {%block js%}{%endblock%}
   </body>
 </html>

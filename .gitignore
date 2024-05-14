@@ -1,2 +1,22 @@
-.venv
+# Ignore compiled Python files
+*.pyc
+
+# Ignore the virtual environment directory
+venv/
+
+# Ignore the Django migration files
+*/migrations/*.py
+*/migrations/*.pyc
+
+# Ignore the SQLite database file
+db.sqlite3
+
+# Ignore any local settings file
+*/settings_local.py
+
+
+# Ignore Python cache directory
 __pycache__/
+
+
+
