@@ -19,6 +19,10 @@ tailwind.config = {
       height: {
         content: "calc(100vh - 100px)",
       },
+      fontFamily: {
+        nunito: ["Nunito", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+      },
     },
   },
 };

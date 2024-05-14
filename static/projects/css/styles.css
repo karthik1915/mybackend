@@ -262,8 +262,7 @@ body {
   border-radius: 18px;
 }
 
-
-.container{
+.container {
   width: 98vw;
   max-width: 1024px;
   padding: 20px 10px;
@@ -295,10 +294,9 @@ body {
   gap: 10px;
 }
 
-@media screen and (max-width:586px) {
-  .projects-links{
+@media screen and (max-width: 586px) {
+  .projects-links {
     width: 90%;
     flex-direction: column;
-    
   }
 }
