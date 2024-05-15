@@ -56,13 +56,13 @@
         <div class="gap-[25px] hidden md:flex">
           <a
             class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-primary"
-            href="{% url 'about' %}"
-            >About</a
+            href="{% url 'index' %}"
+            >Home</a
           >
           <a
             class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-primary"
-            href="{% url 'projects' %}"
-            >Projects</a
+            href="{% url 'about' %}"
+            >About</a
           >
           <a
             class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-primary"
@@ -106,8 +106,8 @@
         id="menu-items"
       >
         {% block popuplinks %}
+        <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'index' %}">Home</a>
         <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'about' %}">About</a>
-        <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'projects' %}">Projects</a>
         <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'services' %}">Services</a>
         <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'contact' %}">Contact</a>
         {% endblock %}
