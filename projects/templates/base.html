@@ -2,39 +2,125 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- MetaData -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Karthikeyan - {% block title %}Portfolio{% endblock %}</title>
+    <title>Karthikeyan - {% block title %}Projects{% endblock %}</title>
     <link
       rel="icon"
       type="image/x-icon"
       href="{% static 'portfolio/images/logo.ico' %}"
     />
+    <!-- ] -->
+    <!-- cdns -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
-
+    <!-- js[ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{% static 'projects/js/tailwind.config.js' %}"></script>
+    <!-- ] -->
+    <!-- styles[ -->
     <link rel="stylesheet" href="{% static 'projects/css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'projects/css/output.css' %}" />
+    <!-- ] -->
+
     {%block css%}{%endblock%}
   </head>
-  <body class="font-nunito bg-background">
-    <div class="nav-container" id="navContainer">
-      <div id="home" class="borderblack">
-        <img src="{% static 'projects/images/image.png' %}" />
-        <p>KARTHIKEYAN</p>
+  <body class="bg-background font-nunito">
+    <!-- navbar -->
+    <div
+      id="navbar"
+      class="w-screen flex justify-center bg-background fixed z-50"
+    >
+      <div
+        class="w-screen flex justify-between items-center max-w-6xl px-3 pt-6 pb-2"
+      >
+        <!-- title[ -->
+        <div
+          id="home"
+          class="flex items-center rounded-full cursor-pointer border border-black"
+        >
+          <img
+            class="h-[44px]"
+            src="{% static 'projects/images/image.png' %}"
+          />
+          <p id="hero-name" class="font-bold px-3.5 py-2.5">KARTHIKEYAN</p>
+        </div>
+        <!-- ] -->
+        <!-- navlinks [ -->
+        {% block navlinks %}
+        <div class="gap-[25px] hidden md:flex">
+          <a
+            class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-primary"
+            href="{% url 'about' %}"
+            >About</a
+          >
+          <a
+            class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-primary"
+            href="{% url 'projects' %}"
+            >Projects</a
+          >
+          <a
+            class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-primary"
+            href="{% url 'services' %}"
+            >Services</a
+          >
+          <a
+            class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-primary"
+            href="{% url 'contact' %}"
+            >Contact</a
+          >
+        </div>
+
+        {% endblock %}
+        <!-- ] -->
+        <!-- popupbutton [ -->
+        <button
+          class="md:hidden"
+          id="menu-button"
+          type="button"
+          onclick="toggleMenu()"
+        >
+          <div
+            id="hamburger"
+            class="w-[25px] h-[25px] bg-cover"
+            style="background-image: url('/static/portfolio/images/menu.svg')"
+          ></div>
+        </button>
+        <!-- ] -->
       </div>
-      {% block navlinks %}{% endblock %}
-      <button onclick="toggleMenu()">
-        <span class="menu"></span>
-      </button>
     </div>
-    <div class="popup-menu" id="popup-menu">
-      <div class="menu-items" id="menu-items">{% block popuplinks %}{% endblock %}</div>
+
+    <!-- popup navbar[ -->
+    <div
+      id="popup-menu"
+      class="z-20 w-[80vw] max-w-sm fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-400 bg-opacity-50 backdrop-blur-md h-30vh px-10 py-6 hidden rounded-lg"
+      id="popup-menu"
+    >
+      <div
+        class="w-full h-full flex flex-col items-center justify-around gap-4"
+        id="menu-items"
+      >
+        {% block popuplinks %}
+        <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'about' %}">About</a>
+        <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'projects' %}">Projects</a>
+        <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'services' %}">Services</a>
+        <a class="text-black text-lg bg-primary bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'contact' %}">Contact</a>
+        {% endblock %}
+      </div>
+      <!-- ] -->
     </div>
+    <!-- navbar end -->
+    
+    <!-- content[ -->
     {% block content %}{% endblock %}
+    <!-- ] -->
+
+    <!-- cdn js[ -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
@@ -47,7 +133,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- ] -->
+    <!-- scripts[ -->
     <script src="{%static 'projects/js/script.js'%}"></script>
     {%block js%}{%endblock%}
+    <!-- ] -->
   </body>
 </html>

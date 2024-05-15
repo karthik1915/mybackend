@@ -1,52 +1,41 @@
 {% extends 'base.html' %}
-{% block title %}Projects{% endblock %}
-{%block css%}
+
 {%load static%}
-<link rel="stylesheet" href="{% static 'projects/css/agriculture.css' %}" />
-{%endblock%}
-{% block navlinks %}
-    <div>
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'services' %}">Services</a>
-        <a href="{% url 'contact' %}">Contact</a>
-    </div>
-{% endblock %}
-{% block popuplinks %}
-    <a href="{% url 'index' %}">Home</a>
-    <a href="{% url 'about' %}">About</a>
-    <a href="{% url 'services' %}">Services</a>
-    <a href="{% url 'contact' %}">Contact</a>
-{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>Projects</h1>
+    <div class="w-screen max-w-4xl mx-auto overflow-x-hidden h-screen pt-20 items-center px-6 md:px-3">
+        <p class="text-3xl py-2 font-semibold font-montserrat text-center">Projects</p>
 
-        <section class="projects-links" onclick="agriculture()">
-            <img src="{%static 'projects/images/agriculture_project_preview.png'%}" />
+        <section class="px-3 py-2 flex flex-col md:flex-row h-auto items-center gap-3 cursor-pointer rounded-xl bg-primary" onclick="agriculture()">
+            <div class="w-full md:max-w-[300px]">
+            <img class="rounded-lg " src="{%static 'projects/images/agriculture_project_preview.png'%}" />
+            </div>
             <div class="">
-                <h3>Smart Agricultural Field Monitoring and Motor Control System with Prediction Analysis</h3>
+                <h3 class="text-xl font-semibold">Smart Agricultural Field Monitoring and Motor Control System with Prediction Analysis</h3>
                 <div>
-                    Key Words : <span>flutter</span> ,<span>PlatformIO</span> ,<span>Python</span> ,<span>Machine Learning</span>
+                    Key Words : <span class="font-semibold underline underline-offset-2">flutter</span> ,<span class="font-semibold underline underline-offset-2">PlatformIO</span> ,<span class="font-semibold underline underline-offset-2">Python</span> ,<span class="font-semibold underline underline-offset-2">Machine Learning</span>
                 </div>
             </div>
         </section>
 
-        <h1>Mini Projects</h1>
-        {% for data in miniprojects %}
-            <section class="projects-links" data-link={{data.link}}>
-                <img src="{%static 'projects/images/'%}{{data.image_name}}" />
-                <div class="">
-                    <h3>{{data.title}}</h3>
+        <p class="text-3xl py-2 font-semibold font-montserrat text-center">Mini Projects</p>
+        <div class="md:grid grid-cols-2 ">
+            {% for data in miniprojects %}
+            <section id="miniproject" class="flex flex-col p-3 items-center rounded-lg m-3 bg-primary" data-link={{data.link}}>
+                <div class="w-full">
+                    <img class="rounded-lg " src="{%static 'projects/images/'%}{{data.image_name}}" />
+                </div>
+                <div class="my-3">
+                    <h3 class="text-2xl font-semibold">{{data.title}}</h3>
                     <div>
                         Key Words : {% for keywords in data.keywords %}
-                            <span>{{keywords}}</span>,
+                        <span class="font-semibold underline underline-offset-2">{{keywords}}</span>,
                         {% endfor %}
                     </div>
                 </div>
             </section>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 {%endblock content%}
 
@@ -60,9 +49,8 @@
         window.location.href = "{% url 'agriculture' %}"; // Navigate to the custom link
     }
 
-    document.querySelectorAll('.projects-links').forEach(function(section) {
+    document.querySelectorAll('#miniproject').forEach(function(section) {
         section.addEventListener('click', function() {
-            // Extract the link from the data-link attribute of the clicked section
             var link = section.getAttribute('data-link');
             if (link) {
                 window.open(link, '_blank'); 

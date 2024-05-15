@@ -1,20 +1,21 @@
 {% extends 'index.html' %}
 {% block title %}About{% endblock %}
 {% block navlinks %}
-    <div>
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'index' %}">Projects</a>
-        <a href="{% url 'services' %}">Services</a>
-        <a href="{% url 'contact' %}">Contact</a>
+    <div class="gap-[25px] hidden md:flex">
+        <a  class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-mustard" href="{% url 'index' %}">Home</a>
+        <a  class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-mustard" href="{% url 'index' %}">Projects</a>
+        <a  class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-mustard" href="{% url 'services' %}">Services</a>
+        <a  class="px-3.5 py-2 text-black rounded-[18px] cursor-pointer no-underline uppercase text-md bg-mustard" href="{% url 'contact' %}">Contact</a>
     </div>
 {% endblock %}
 {% block popuplinks %}
-    <a href="{% url 'index' %}">Home</a>
-    <a href="{% url 'services' %}">Services</a>
-    <a href="{% url 'contact' %}">Contact</a>
+    <a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full"  href="{% url 'index' %}">Home</a>
+    <a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full"  href="{% url 'projects' %}">Projects</a>
+    <a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full"  href="{% url 'services' %}">Services</a>
+    <a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full"  href="{% url 'contact' %}">Contact</a>
 {% endblock %}
 {% block content %}
-    <div class="main">
-        <h1>About Me</h1>
+    <div class="w-screen max-w-6xl mx-auto overflow-x-hidden h-screen pt-20 items-center px-6 md:px-3">
+        <p class="text-3xl py-2 font-semibold font-montserrat text-center">About Me</p>
     </div>
 {% endblock %}

@@ -22,10 +22,10 @@
   >
 </div>
 {% endblock %} {% block popuplinks %}
-<a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full" href="{% url 'about' %}">About</a>
-<a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full" href="{% url 'projects' %}">Projects</a>
-<a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full" href="{% url 'services' %}">Services</a>
-<a class="text-black text-lg bg-mustard bg-opacity-75 hover:bg-opacity-100 hover:text-white px-10 py-3 rounded-full" href="{% url 'contact' %}">Contact</a>
+<a class="text-black text-lg bg-mustard bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'about' %}">About</a>
+<a class="text-black text-lg bg-mustard bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'projects' %}">Projects</a>
+<a class="text-black text-lg bg-mustard bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'services' %}">Services</a>
+<a class="text-black text-lg bg-mustard bg-opacity-75  px-10 py-3 rounded-full" href="{% url 'contact' %}">Contact</a>
 {% endblock %} {% block content %}
 
 <div
@@ -52,7 +52,7 @@
   </div>
 </div>
 
-<div class="h-screen w-screen bg-myblack" id="panel-2"></div>
+<div class="h-screen w-full bg-myblack" id="panel-2"></div>
 
 {% endblock %} {%block js%}
 <script>

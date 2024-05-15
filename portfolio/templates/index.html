@@ -11,7 +11,7 @@
       type="image/x-icon"
       href="{% static 'portfolio/images/logo.ico' %}"
     />
-
+    <!-- ] -->
     <!-- cdns -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,12 +20,13 @@
       rel="stylesheet"
     />
 
-    <!-- css[ -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- js[ -->
+    {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
     <script src="{% static 'portfolio/js/tailwind.config.js' %}"></script>
     <!-- ] -->
     <!-- styles[ -->
-    {%block css%}{%endblock%}
+    <link rel="stylesheet" href="{% static 'portfolio/css/output.css' %}" />
+    {% block css %}{%endblock%}
     <!-- ] -->
   </head>
 
@@ -37,7 +38,7 @@
       class="w-screen flex justify-center bg-background-light fixed z-50"
     >
       <div
-        class="w-screen max-w-6xl flex justify-between items-center max-w-6xl px-3 pt-6 pb-2"
+        class="w-screen flex justify-between items-center max-w-6xl px-3 pt-6 pb-2"
       >
         <!-- title[ -->
         <div
@@ -72,7 +73,7 @@
     </div>
 
     <!-- popup navbar[ -->
-    <div id="popup-menu" class="z-20 w-[80vw] max-w-sm fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 bg-gray-600 bg-opacity-50 backdrop-blur-md h-30vh px-10 py-6 hidden z-10 rounded-lg" id="popup-menu">
+    <div id="popup-menu" class="z-20 w-[80vw] max-w-sm fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-600 bg-opacity-50 backdrop-blur-md h-30vh px-10 py-6 hidden rounded-lg" id="popup-menu">
       <div class="w-full h-full flex flex-col items-center justify-around gap-4" id="menu-items">
         {% block popuplinks %}{% endblock %}
       </div>
@@ -84,7 +85,7 @@
     {% block content %}{% endblock %}
     <!-- ] -->
 
-    <!-- js[ -->
+    <!-- cdn js[ -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
@@ -100,36 +101,6 @@
     <!-- ] -->
     <!-- scripts[ -->
     <script src="{% static 'portfolio/js/script.js' %}"></script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-      document.getElementById("home").addEventListener("click", function () {
-        window.location.href = "/";
-      });
-      const popupAnimation = (target) =>
-        gsap.fromTo(
-          target,
-          {
-            scale: 0,
-          },
-          {
-            scale: 1,
-            ease: "bounce.out",
-            duration: 0.3,
-            display: "block",
-          }
-        );
-
-      function toggleMenu() {
-        var menu = document.getElementById("popup-menu");
-        popupAnimation(menu).play();
-      }
-
-      document.addEventListener("click", function (event) {
-        var target = event.target;
-        var menu = document.getElementById("popup-menu");
-        popupAnimation(menu).reversed(true);
-      });
-    </script>
     {%block js%}{%endblock%}
     <!-- ] -->
   </body>

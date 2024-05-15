@@ -1,6 +1,7 @@
 // tailwind.config.js
 
-tailwind.config = {
+module.exports = {
+  content: ["./portfolio/templates/*.html", "./projects/templates/*.html"],
   theme: {
     extend: {
       colors: {
